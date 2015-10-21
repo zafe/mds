@@ -39,6 +39,7 @@
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5</div>
+                <img src="{{url('img/logo.png')}}">
             </div>
         </div>
     </body>
