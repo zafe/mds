@@ -8,7 +8,8 @@ class Expediente extends Model
 {
     protected $table='expediente';
 
-    public static function buscar($num,$cod,$anio){
+    public static function buscar($num,$cod,$anio)
+    {
       $parametros=[
         'codigo' => $cod,
         'anio' => $anio,
@@ -22,6 +23,16 @@ class Expediente extends Model
             and  expanio = :anio
             and  expnum = :numero
         ';
-      return \DB::select($sql,$parametros);
-    }
-}
+      $expe=\DB::select($sql,$parametros);
+      //como retorna un array verifico que retorne almenos un elemento
+      //para retornar el primero sino retorna null
+      if(count($expe) > 0)
+      {
+        return $expe[0];
+      }
+      else
+      {
+        return null;
+      } //if(count($expe) > 0){
+    } //public static function buscar($num,$cod,$anio){
+} //class Expediente extends Model
